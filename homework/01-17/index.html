@@ -11,27 +11,25 @@
                   <stop offset="0%" style="stop-color:rgb(215, 182, 138);stop-opacity:1" />
                   <stop offset="100%" style="stop-color:rgb(240,230,202);stop-opacity:1" />
                 </linearGradient>
+                <linearGradient id="grad2" x1="0%" y1="0%" x2="100%" y2="10%">
+                    <stop offset="0%" style="stop-color:rgb(248, 222, 129);stop-opacity:1" />
+                    <stop offset="100%" style="stop-color:rgb(255, 236, 180);stop-opacity:1" />
+                  </linearGradient>
               </defs>
+        <!--frame-->
             <rect  x="25%" y="100" width="803.714" height="553.972" fill="url(#grad1)"/>
-            <polygon points="750,360 560,250 580,520" fill="yellow"/>
+        <!--triangle-->
+            <polygon points="850,360 620,120 680,600" fill="url(#grad2)"/>
+        <!--big stroke-->
             <line x1="71%" x2="430" y1="100" y2="640" stroke="black" stroke-width="6"/>
-            <line x1="32%" x2="1" y1="20" y2="100" stroke="black" stroke-width="4"/>
+        <!--small stroke-->
             <line x1="52%" x2="460" y1="110" y2="180" stroke="blue" stroke-width="4"/>
-            <polyline points="M430,230 S430,230 450,200" stroke="black" stroke-width="4"/>
+        <!--bottom curve-->
+        <path d="M890,589 C758,544 847,433 923,501 M1000,425 C1060,512 968,562 923,501" fill="none" stroke="black" stroke-width="4"/>
+        <!--circle-->
             <circle cx="67%" cy="354" r="150" fill="none" stroke="black" stroke-width="3"/>
-            <style>
-                .trapezoid {
-                    border-bottom: 50px solid #555;
-                    border-left: 25px solid transparent;
-                    border-right: 25px solid transparent;
-                    height: 0;
-                    width: 125px;
-                }
-                </style>
-                
+        <!--trapezium-->
+            <polygon points="0,110, 30,110, 24,120, 6,120" fill="red"/>
         </svg>
-        <h2>Trapezoid CSS</h2>
-        <div class="trapezoid "></div>
-
     </body>
 </html>
