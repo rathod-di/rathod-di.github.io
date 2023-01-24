@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
-    <head>
+    <head style="font-family:Verdana, Geneva, Tahoma, sans-serif;">
         <meta charset=”utf-8” />
-        
+      <h2 style="text-align: center">Transverse Line- Wassily Kandinsky</h2>
     </head>  
     <body>
         <svg width="100%" height="700">
@@ -15,21 +15,43 @@
                     <stop offset="0%" style="stop-color:rgb(248, 222, 129);stop-opacity:1" />
                     <stop offset="100%" style="stop-color:rgb(255, 236, 180);stop-opacity:1" />
                   </linearGradient>
+                  <linearGradient id="grad3" x1="0%" y1="0%" x2="50%" y2="10%">
+                    <stop offset="0%" style="stop-color:rgb(0, 0, 0);stop-opacity:1" />
+                    <stop offset="100%" style="stop-color:rgb(119, 119, 119);stop-opacity:1" />
+                  </linearGradient>
               </defs>
-        <!--frame-->
-            <rect  x="25%" y="100" width="803.714" height="553.972" fill="url(#grad1)"/>
-        <!--triangle-->
-            <polygon points="850,360 620,120 680,600" fill="url(#grad2)"/>
-        <!--big stroke-->
-            <line x1="71%" x2="430" y1="100" y2="640" stroke="black" stroke-width="6"/>
-        <!--small stroke-->
-            <line x1="52%" x2="460" y1="110" y2="180" stroke="blue" stroke-width="4"/>
-        <!--bottom curve-->
+     <!--frame-->
+        <rect  x="25%" y="100" width="803.714" height="553.972" fill="url(#grad1)"/>
+    <!--triangle-->
+        <polygon points="990,360 620,120 680,595" fill="url(#grad2)"/>
+    <!--white circle-->
+        <circle cx="67.9%" cy="144" r="35" fill="white"/>
+    <!--orange circle-->
+        <circle cx="67.9%" cy="144" r="25" fill="orange"/>
+    <!--brown circle-->
+     <circle cx="46.5%" cy="430" r="40" fill="#946c2d"/>   
+    <!--red triangle-->
+    <polygon points="745,420 689,468 690,395" fill="#d93c19"/> 
+    <!--big trapezium-->
+        <polygon points="490,625, 400,400, 590,300, 690,358" fill="#946c2d"/>
+    <!--polygon in trapezium-->
+        <polygon points="435,485, 480,357, 625,360, 545,550" fill="#d8c7ac"/>
+    <!--Quad-->
+        <polygon points="655,593, 630,527, 685,490, 725,510" fill="green"/>
+    <!--big stroke-->
+        <line x1="71%" x2="430" y1="100" y2="640" stroke="black" stroke-width="6"/>
+    <!--big circle-->
+        <circle cx="67%" cy="354" r="152" fill="url(#grad3)" stroke="black" stroke-width="3"/>
+    <!--small stroke-->
+        <line x1="52%" x2="455" y1="110" y2="180" stroke="black" stroke-width="4"/>
+    <!--bottom curve-->
         <path d="M890,589 C758,544 847,433 923,501 M1000,425 C1060,512 968,562 923,501 M1000,425 C976,410 993,332 1138,428" fill="none" stroke="black" stroke-width="4"/>
-        <!--circle-->
-            <circle cx="67%" cy="354" r="150" fill="none" stroke="black" stroke-width="3"/>
-        <!--trapezium-->
-            <polygon points="24,120, 6,120, 0,110, 30,110" fill="red"/>
+    <!--red triangle-->
+        <polygon points="770,230 775,150 850,215" fill="#d93c19"/>
+    <!--circle-->
+        <circle cx="35%" cy="260" r="50" fill="blue"/>
+    <!--arc-->    
+        <path d="M709,389 C685,323 776,237 906,206" fill="none" stroke="black" stroke-width="4"/>
         </svg>
     </body>
 </html>
