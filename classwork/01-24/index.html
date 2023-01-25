@@ -41,9 +41,38 @@
         name:"Holmes Building",
         color:"green",
         street:"Huntington Avenue 700",
-        zip: 53719
+        zip: 53719,
+        greetings: function(name){
+            console.log("hey"+name+"!")
+        }
        }
        Console.log(newObject.street)
+//different types of functions
+
+//a funtion without an input variable
+    var printHello= function(){
+        console.log("hello, world!");
+    }
+        PrintName("Sir");
+//A function with a numerical return value
+    var addvalues= function(val1, val2){
+        //Add two values
+        let sum=val1+val2;
+        //Retun their sum 
+        return sum;
+    }       
+    var mysum= addValues(10,10);
+    console.log(mysum);
+
+
+    var expValues= funtion(val) { 
+        //add two values
+        let exp = val**2
+        //return their sum
+        return exp;
+    }
+
+    console.log(expValues(10));
 
     </script>
     </head>
