@@ -65,20 +65,44 @@
     console.log(mysum);
 
 
-    var expValues= funtion(val) { 
+    var expValues= function(val) { 
         //add two values
-        let exp = val**2
+        let exp = val**2;
         //return their sum
         return exp;
     }
 
     console.log(expValues(10));
 
+// conditional statements are if/ else statements
+    var condVal = 10;
+if (condVal<= 10) {
+    console.log("this is not so bad")
+    } else if (condVal== 15){
+        console.log("This is bad");
+    } else {
+        console.log("I don't know what to do");
+    }
+// combine functions with conditional statements
+   var greaterThanTen = function(val) {
+    if (val > 10) {
+        console.log("No!");
+    }else {
+        val++;
+        console.log("val");
+    }
+    return val;
+   }
+    var checker=greaterThanTen(100);
+    console.log(checker);
+
+// square root
+    
     </script>
     </head>
     <body>
     <div>
-        <h1 id="hello">Hello world</h1>   
+        <h1 id="hello">Hello world!</h1>   
     </div>    
     </body>
 </html>
