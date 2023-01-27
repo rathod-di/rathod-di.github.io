@@ -41,19 +41,19 @@
         name:"Holmes Building",
         color:"green",
         street:"Huntington Avenue 700",
-        zip: 53719,
+        zip: "53719",
         greetings: function(name){
-            console.log("hey"+name+"!")
+            console.log("Hey "+name+"! ")
         }
        }
-       console.log(newObject.street)
+       console.log(newObject.greetings("Disha"))
 //different types of functions
 
 //a funtion without an input variable
     var printHello= function(){
-        console.log("hello, world!");
+        console.log("Hello, world!");
     }
-        PrintName("Sir");
+        printHello("Sir");
 //A function with a numerical return value
     var addvalues= function(val1, val2){
         //Add two values
@@ -61,7 +61,7 @@
         //Retun their sum 
         return sum;
     }       
-    var mysum= addValues(10,10);
+    var mysum= addvalues(10,10);
     console.log(mysum);
 
 
@@ -98,15 +98,17 @@ if (condVal<= 10) {
 
 // return square root
    function returnSq(val) {
-if (math.isNaN(val)){
-    consoole.log ("not a number")
-}else{
-    return Math.sqrt(val);
-}
-console.log (returnSq("abc"));
+        if (isNaN(val)){
+            console.log("not a number")
+        } 
+        else{
+            return Math.sqrt(val);
+        } 
+        
 // connecting Javascript to html
 // changing content in HTML tags
-   }
+   } 
+   console.log(returnSq("4"));
 
 
     </script>
