@@ -1,5 +1,57 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset=”utf-8” />
-        <title>Javascript</title>
+<head>
+    <meta charset=”utf-8” />
+    <title>
+        The Power of JavaScript
+    </title>
+</head>
+ 
+<body style="text-align:center;">
+ 
+    <h1>
+        Background Magic
+    </h1>
+ 
+    <p id="fun" style="font-size: 16px;
+                          font-weight: bold;">
+    </p>
+
+    <button onclick="changeback()">
+        Click here
+    </button>
+ 
+    <p id="backg" style="color:black; ">
+    </p>
+    <p id="question" style="color:rgb(61, 61, 61); ">
+    </p> 
+    <script>
+        var el_up = document.getElementById("fun");
+        var el_down = document.getElementById("backg");
+        var el_question = document.getElementById("question");
+        var str = "Click on button to change the background color";
+                 
+        el_up.innerHTML = str;
+                 
+        function changeColor(color) {
+            document.body.style.background = color;
+            document.body.style.backgroundRepeat = "no-repeat";
+        }
+         
+        function changeback() {
+            changeColor('linear-gradient(rgb(167, 223, 233), rgb(255, 255, 255)');
+            
+            el_question.innerHTML = "Do you enjoy evening classes?";
+
+            let newBtn = document.createElement("button");
+            newBtn.innerHTML = "Yes";
+            document.body.appendChild(newBtn);
+
+            let newBtn2 = document.createElement("button");
+            newBtn2.innerHTML = "No";
+            document.body.appendChild(newBtn2);
+        }        
+    </script>
+</body>
+ 
+</html>
