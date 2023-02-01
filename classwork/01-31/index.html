@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset=”utf-8” />
+        <title>D3 and JavaScript Libraries</title>
+
+        <!-- Loads external CSS stylesheet -->
+        <link rel="stylesheet" href="style31.css">
+
+        <!-- Loads an external JS file -->
+        <!-- Note: you must replace src with your own path -->
+        <!-- <script src="https://rathod-di.github.io/classwork/01-31/myFunctions.js"></script> -->
+
+        <!-- Loads the D3.js library v7 -->
+        <script src="https://d3js.org/d3.v7.min.js"></script>
+    </head>
+
+    <body>
+        <div>
+            <h1 id="HL">JS Libraries, <br> D3.js and Data Manipulation</br></h1>
+        </div>
+
+                <!--  -->
+        <!-- PART A -->
+        <!--  -->
+
+        <!-- Uses the function defined in myFunctions.js -->
+        <!--<script>
+            console.log("The sum is: " + sumAB(1, 2));
+            console.log("Here is a random number: " + randomPosition());
+        
+
+    // Calling functions written in a separate js file
+    var sm= sumAB(2,5);
+    console.log(sm)
+</script>
+
+<!-- comment -->
+
+<script>
+ var page_title=d3.select('#HL');
+ //change individual element styles
+ // (attribute, value)
+ page_title.style("color","green");
+ page_title.style("background-color","pink");
+ page_title.style("font-size","50px");
+
+ page_title.attr("class","comicText")
+
+ //change multiple element styles or attributes
+ d3.selectAll("p").style("text-align","center")
+   .attr("class","comicText");
+
+  var allCircles=d3.selectAll("circle")
+  .style("fill","green")
+  .attr("cy","120")
+  .attr("r","30")
+</script>
+<div>
+    <svg width="760" height="200" id="static-circles">
+        <rect width="760" height="200" style="fill:white; stroke-width:1; stroke:black"/>
+        <circle/>
+        <circle cx="120"/>
+        <circle cx="240"/>
+        <circle cx="360"/>
+        <circle cx="480"/>
+    </svg>
+</div>
+<script>
+    //this is a data array: an array with data points
+    var data1 =[
+        {
+            country:"usa",
+            value: 12412341
+        },
+        {
+            country:"mex",
+            value: 24318650  
+        },
+    ]
+    //data array2
+    var data2 =[
+        {
+            country:"chn",
+            value: 65430234
+        },
+        {
+            country:"mex",
+            value: 24609650  
+        },
+    ]
+    //data array3
+    var data3 =[
+        {
+            country:"chn",
+            value: 65430234
+        },
+        {
+            country:"mex",
+            value: 24609650  
+        },
+        {
+            country:"usa",
+            value: 22464340
+        }
+    ]
+    //function that draws circles using data arrays
+    function drawCircles(dataArray){
+        var circles =d3.select("#data-viz").selectAll("circle")
+        .data(dataArray, function(d){
+            return d.country;
+        });
+    }
+
+</script>
+
+</body>
+</html>
