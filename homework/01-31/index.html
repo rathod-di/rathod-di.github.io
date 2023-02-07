@@ -1,35 +1,63 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <script src="https://d3js.org/d3.v6.min.js"></script>
-  <style>
-    svg {
-      background-color: lightgray;
-    }
-  </style>
-</head>
-<body>
-  <svg width="500" height="500"></svg>
-  <script>
-    const svg = d3.select("svg");
+  <head>
+    <meta charset="utf-8">
+    <title>SVG Animation using Enter/Update/Exit Concept</title>
+    <script src="https://d3js.org/d3.v6.min.js"></script>
+  </head>
+  <body>
+    <div id="svg-container"></div>
 
-    const data = [10, 20, 30, 40, 50];
-    
-    const circles = svg.selectAll("circle")
-      .data(data, d => d);
-      
-    circles.enter().append("circle")
-      .attr("cx", (d, i) => i * 100 + 50)
-      .attr("cy", 50)
-      .attr("r", d => d)
-      .attr("fill", "blue");
-      
-    circles.exit().remove();
-    
-    circles.transition()
-      .duration(1000)
-      .attr("cy", d => 500 - d)
-      .attr("fill", "red");
-  </script>
-</body>
+    <script>
+      const svg = d3
+        .select("#svg-container")
+        .append("svg")
+        .attr("width", 800)
+        .attr("height", 600);
+
+      const data = [
+        { x: 50, y: 50, size: 50, color: "red" },
+        { x: 100, y: 100, size: 30, color: "blue" },
+        { x: 200, y: 200, size: 40, color: "green" },
+        { x: 300, y: 300, size: 20, color: "yellow" }
+      ];
+
+      const circles = svg
+        .selectAll("circle")
+        .data(data)
+        .enter()
+        .append("circle")
+        .attr("cx", d => d.x)
+        .attr("cy", d => d.y)
+        .attr("r", d => d.size)
+        .style("fill", d => d.color);
+
+      // Update function
+      const update = (newData) => {
+        circles
+          .data(newData)
+          .transition()
+          .duration(1000)
+          .attr("cx", d => d.x)
+          .attr("cy", d => d.y)
+          .attr("r", d => d.size)
+          .style("fill", d => d.color);
+
+        circles
+          .exit()
+          .transition()
+          .duration(1000)
+          .style("fill", "white")
+          .remove();
+      };
+
+      // Update the data after 5 seconds
+      setTimeout(() => {
+        update([
+          { x: 150, y: 150, size: 50, color: "purple" },
+          { x: 250, y: 250, size: 30, color: "orange" }
+        ]);
+      }, 5000);
+    </script>
+  </body>
 </html>
