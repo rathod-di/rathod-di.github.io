@@ -185,13 +185,14 @@
               .transition().duration(1000)
               .attr("height",100)
               .attr("width",200)
-              .attr("stroke-width", 10);
+              .style('opacity', 0)
+        
           },
               // updating rectangles
               function(update) {
-                  return update.transition().duration(1000)
+                  return update.transition().duration(5000)
                   .attr("x", randomPosition)
-                  .style("stroke-width", 10);
+                  .style('opacity', 5);
               },
              
   
