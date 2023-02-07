@@ -1,63 +1,217 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8">
-    <title>SVG Animation using Enter/Update/Exit Concept</title>
-    <script src="https://d3js.org/d3.v6.min.js"></script>
+    <meta charset="utf-8" />
+    <title>D3 and JavaScript Libraries</title>
+
+    <!-- Loads external CSS stylesheet -->
+    <link rel="stylesheet" href="style31.css" />
+
+    <!-- Loads an external JS file -->
+    <!-- Note: you must replace src with your own path -->
+
+    <!--         <script src="/homework/01-31/scripts/myFunctions.js"></script> -->
+
+    <!-- Loads the D3.js library v7 -->
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    
   </head>
-  <body>
-    <div id="svg-container"></div>
+
+  <body style="font-family:Verdana, Geneva, Tahoma, sans-serif; background: linear-gradient(rgb(167, 223, 233), rgb(255, 255, 255)); background-repeat: no-repeat; max-width: max-content;
+  margin: auto; ">
+    <div>
+      <h1 id="HL">Animations</h1>
+    </div>
+
+<!--     <p>This is an illustration of</p>
+    <p>the D3 function</p>
+    <p>.selectALL for changing multiple elements</p> -->
+
+    <!--  -->
+    <!-- PART A -->
+    <!--  -->
+
+    <!-- <script>
+
+            // Calling functions written in a separate js file
+            var sm = sumAB(2, 5);
+            console.log(sm);
+
+        </script> -->
+
+    <!-- Uses the function defined in myFunctions.js -->
+
+    <!--  -->
+    <!-- PART B -->
+    <!--  -->
+
+    <!-- Basic D3.js functions: Selections, Changing attributes and styles, Mult-Selection -->
+    
+<!--     <div>
+      <svg width="760" height="200" id="static-circles">
+        <rect width="760" height="200" style="fill:white;stroke-width:1;stroke:black" />
+        
+        <circle/>
+        <circle cx = "120"/>
+        <circle cx = "240"/>
+        <circle cx = "360"/>
+        <circle cx = "480"/>
+
+      </svg>
+    </div> -->
 
     <script>
-      const svg = d3
-        .select("#svg-container")
-        .append("svg")
-        .attr("width", 800)
-        .attr("height", 600);
+      var page_title = d3.select("#HL");
 
-      const data = [
-        { x: 50, y: 50, size: 50, color: "red" },
-        { x: 100, y: 100, size: 30, color: "blue" },
-        { x: 200, y: 200, size: 40, color: "green" },
-        { x: 300, y: 300, size: 20, color: "yellow" }
-      ];
+      // Change individual element styles
+      // (attribute, value)
+      page_title.style("color", "black");
+      page_title.style("font-size", "60px");
 
-      const circles = svg
-        .selectAll("circle")
-        .data(data)
-        .enter()
-        .append("circle")
-        .attr("cx", d => d.x)
-        .attr("cy", d => d.y)
-        .attr("r", d => d.size)
-        .style("fill", d => d.color);
+      // Chain multiple changes one after the other
+      page_title
+        .style("color", "grey")
+        .style("background-color", "grad")
+        .style("font-size", "50px");
 
-      // Update function
-      const update = (newData) => {
-        circles
-          .data(newData)
-          .transition()
-          .duration(1000)
-          .attr("cx", d => d.x)
-          .attr("cy", d => d.y)
-          .attr("r", d => d.size)
-          .style("fill", d => d.color);
+      // Changing element attributes
+      // Assign a new class to the h1 tag
 
-        circles
-          .exit()
-          .transition()
-          .duration(1000)
-          .style("fill", "white")
-          .remove();
-      };
+      page_title.attr("class", "comicText");
 
-      // Update the data after 5 seconds
-      setTimeout(() => {
-        update([
-          { x: 150, y: 150, size: 50, color: "purple" },
-          { x: 250, y: 250, size: 30, color: "orange" }
-        ]);
-      }, 5000);
+      // Change multiple element styles or attributes
+
+      // d3.selectAll("p")
+      //   .style("text-align", "center")
+      //   .attr("class", "comicText");
+
+      // d3.selectAll("p").style("margin-top", "80px");
+      
+      // d3.selectAll("circle")
+      //   .style("fill", "green")
+      //   .attr("cy", "120")
+      //   .attr("r", "30");
+      
     </script>
-  </body>
-</html>
+    
+    <div>
+        <svg width="500" height="400" id="data-viz">
+          <rect
+            width="500"
+            height="400"
+            style="fill: white; stroke-width: 1; stroke: black"
+          ></rect>
+        </svg>
+      </div>
+  
+      <div>
+        <button onclick="drawRectangles(data1)">Data 1</button>
+        <button onclick="drawRectangles(data2)">Data 2</button>
+        <button onclick="drawRectangles(data3)">Data 3</button>
+      </div>
+  
+      <script>
+        // Data Array 1
+        // This is a data array: an array with data points
+  
+        var data1 = [
+          {
+            country: "usa",
+            value: 12412341,
+          },
+          {
+            country: "mex",
+            value: 24318650,
+          },
+        ];
+  
+        // Data Array 2
+        var data2 = [
+          {
+            country: "chn",
+            value: 65430234,
+          },
+          {
+            country: "mex",
+            value: 24609650,
+          },
+        ];
+  
+        // Data Array 3
+        var data3 = [
+          {
+            country: "chn",
+            value: 65430234,
+          },
+          {
+            country: "mex",
+            value: 24609650,
+          },
+          {
+            country: "usa",
+            value: 22464340,
+          },
+        ];
+  
+        function randomPosition() {
+          return Math.random() * 150 + 20;
+        }
+  
+        // Function that draws rectangles using data arrays
+              function drawRectangles(dataArray) {
+  
+              var rect = d3.select("#data-viz").selectAll("rectangles")
+              .data(dataArray, function(d) {
+                  return d.country;
+              });
+  
+              // entering rectangles
+              rect.join(
+                  function(enter) {
+                      return enter.append("rect")
+                      .attr("fill", function(d){
+                if (d.country == "usa") {
+                  return "orange";
+                } else if (d.country == "mex") {
+                  return "pink";
+                } else if (d.country == "chn") {
+                  return "red";
+                }
+              })
+              .attr("x",randomPosition)
+              .attr("y",100)
+              .attr("width",0)
+              .attr("height",0)
+              .transition().duration(1000)
+              .attr("height",100)
+              .attr("width",200)
+              .attr("stroke-width", 10);
+          },
+              // updating rectangles
+              function(update) {
+                  return update.transition().duration(1000)
+                  .attr("x", randomPosition)
+                  .style("stroke-width", 10);
+              },
+             
+  
+              // exiting rectangles
+              function(exit) {
+                  exit.transition().duration(1000)
+                  .attr("width",10)
+                  .attr("height",50)
+                  .remove();
+  
+              }
+              )
+          }
+      </script>
+  
+      <!--  -->
+      <!-- PART C -->
+      <!--  -->
+  
+      <!-- D3.js for animations: data arrays, enter/update/exit -->
+    </body>
+  </html>
+  
