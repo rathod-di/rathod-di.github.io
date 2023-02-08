@@ -52,7 +52,7 @@ function parseLOG(d) {
  
  // We supply this function to the d3.text() method in this way:
  
-//  d3.text("datasets/file.txt").then(parseLOG);
+ d3.text("datasets/file.txt").then(parseLOG);
  
  
  // 2. Load a CSV file and print its content
@@ -125,10 +125,10 @@ function parseLOG(d) {
  //       change you make at one point acts on the data it receives from a change
  //       in a previous point.  
  
- //d3.csv("datasets/cities-sm.csv").then(function(data){
+ d3.csv("datasets/cities-sm.csv").then(function(data){
      
      // This accesses the first row of the csv dataset
- //console.log(data[0]);
+    console.log(data[0]);
  
      // Change values using the .forEach() method that loops
      // through the rows of the dataset. In this way, you 
@@ -156,14 +156,14 @@ function parseLOG(d) {
      // filled with elements that pass a particular test provided by a 
      // custom function.
  
-     // let filtered_data = data.filter(function(d) {
+     let filtered_data = data.filter(function(d) {
  
-     //     // Return the object iff its key is equal to a specified string
-     //     return d.state === "NY";
+         // Return the object iff its key is equal to a specified string
+         return d.state === "NY";
  
-     // })
+     })
  
-     // console.log(filtered_data);
+     console.log(filtered_data);
  
      // Finding MINIMUM or MAXIMUM value of a numerical variable
  
@@ -171,15 +171,15 @@ function parseLOG(d) {
      // the array/object to be analyzed and an "accessor" function that
      // returns the object key value to be used for the analysis.
  
-     // function getValue(d) {
-     //     // Retrieves only the value in the column "population"
-     //     return +d.population;
-     // }
+     function getValue(d) {
+         // Retrieves only the value in the column "population"
+         return +d.population;
+     }
  
-     // const min_pop = d3.min(data, getValue);
-     // const max_pop = d3.max(data, getValue);
+     const min_pop = d3.min(data, getValue);
+     const max_pop = d3.max(data, getValue);
  
-     // console.log(min_pop, max_pop);
+     console.log(min_pop, max_pop);
  
      // GROUPING DATA
  
@@ -189,16 +189,16 @@ function parseLOG(d) {
  
      // Here, we group the data by "city".
  
-     // let grouped_data = d3.group(data, function(d) {
+     let grouped_data = d3.group(data, function(d) {
  
-     //    return d.city;
+        return d.city;
  
-     // });
+     });
  
-     // // Returns a Map
-     // console.log(grouped_data);
+     // Returns a Map
+     console.log(grouped_data);
  
-     // // Then, you can query the map for a particular group.
-     // console.log(grouped_data.get("boston"));
+     // Then, you can query the map for a particular group.
+     console.log(grouped_data.get("boston"));
  
- // });
+ });
