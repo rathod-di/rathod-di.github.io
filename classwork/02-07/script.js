@@ -52,7 +52,7 @@ function parseLOG(d) {
  
  // We supply this function to the d3.text() method in this way:
  
- d3.text("datasets/file.txt").then(parseLOG);
+//  d3.text("datasets/file.txt").then(parseLOG);
  
  
  // 2. Load a CSV file and print its content
@@ -60,7 +60,7 @@ function parseLOG(d) {
  // The following line loads a CSV file and prints its content using
  // the same callback function as before. 
  
- d3.csv("datasets/cities-sm.csv").then(parseLOG);
+//  d3.csv("datasets/cities-sm.csv").then(parseLOG);
  
  // NOTE 1: In CSV files, the first row of the file is expected 
  //         to be the key/names for each data point.
@@ -75,7 +75,7 @@ function parseLOG(d) {
  // defined with pairs of keys/names and values but it can also contain more
  // complex things like functions, arrays, and even other JavaScript objects.
  
- d3.json("datasets/countrycode-sm.json").then(parseLOG);
+//  d3.json("datasets/countrycode-sm.json").then(parseLOG);
  
  
  // 4. Loading Data from a Public API
@@ -85,21 +85,22 @@ function parseLOG(d) {
  // https://github.com/public-apis/public-apis/blob/master/README.md
  // https://www.kaggle.com/datasets
  
- // let urlJSON = "https://datausa.io/api/data?drilldowns=State&measures=Population&year=latest";
+ let urlJSON = "https://datausa.io/api/data?drilldowns=State&measures=Population&year=latest";
  
  d3.json(urlJSON).then(parseLOG);
  
  
  // Loading Data from a REALTIME Public API with a fixed time period for fetching/displaying data
  
- // let urlRealTime = "https://whiteboard.datawheel.us/api/google-analytics/realtime/random";
+//  let urlRealTime = "https://whiteboard.datawheel.us/api/google-analytics/realtime/random";
  
- // function loadData() {
-  //d3.json(urlRealTime).then(parseLOG);
+//  function loadData() {
+//   d3.json(urlRealTime).then(parseLOG);
  
- // }
  
- // setInterval(loadData, 1000);
+// }
+ 
+//  setInterval(loadData, 10000);
  
  
  
@@ -140,14 +141,14 @@ function parseLOG(d) {
      //      b. Use the unary operator +
      //  The following function uses method (b).
  
-     // data.forEach( function(d) {
+     data.forEach( function(d) {
  
      //     // Here, we alter the keys "population" and "land area" only.
      //     // Thus, we leave "city" and "state" as they are.
-     //     d.population = +d.population;
-     //     d["land area"] = +d["land area"];
+         d.population = +d.population;
+         d["land area"] = +d["land area"];
  
-     // });
+     });
  
      // Filtering Data 
      
