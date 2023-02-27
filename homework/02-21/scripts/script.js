@@ -23,7 +23,7 @@
     of `data` with console.log(data).
 */
 
-d3.csv("./data/gapminder.csv").then(function(data) {
+d3.csv("../data/gapminder.csv").then(function(data) {
 
     /*
     1. DEFINE DIMENSIONS OF SVG + CREATE SVG CANVAS
