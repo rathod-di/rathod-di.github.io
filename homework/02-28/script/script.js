@@ -36,13 +36,6 @@ d3.csv("./data/gapminder.csv").then(function(data) {
   const xAxis = d3.axisBottom(xScale);
   const yAxis = d3.axisLeft(yScale);
 
-  svg.append("g")
-      .attr("transform", "translate(0," + (height - margin.bottom) + ")")
-      .call(xAxis);
-
-  svg.append("g")
-      .attr("transform", "translate(" + margin.left + ",0)")
-      .call(yAxis);
 
   const points = svg.selectAll("rect")
       .data(filtered_data)
@@ -53,26 +46,39 @@ d3.csv("./data/gapminder.csv").then(function(data) {
           .attr("width", xScale.bandwidth())
           .attr("height", function(d) { return height - (margin.bottom + yScale(d.gdpPercap)) })
           .attr("fill", function(d) {
-            if (d.year >= "1952" && d.year <= "1967") {
-                return "red";
-            } else if (d.year >= "1972" && d.year <= "1987") {
-                return "blue";
-            } else {
-                return "green";
-            }
-        });
+    if (d.year >= "1952" && d.year <= "1967") {
+        return "red";
+    } else if (d.year >= "1972" && d.year <= "1987") {
+        return "blue";
+    } else {
+        return "green";
+    }
+});
 
   const xAxisLabel = svg.append("text")
       .attr("class","axisLabel")
       .attr("x", width/2)
-      .attr("y", height-margin.bottom/2)
+      .attr("y", height-margin.bottom/3)
       .text("Year");
 
   const yAxisLabel = svg.append("text")
       .attr("class","axisLabel")
       .attr("transform","rotate(-90)")
       .attr("x", -height/2)
-      .attr("y", margin.left/2)
-      .text("GDP (Years)");
+      .attr("y", margin.left/3)
+      .text("GDP");
+      svg.append("g")
+      .attr("class", "x axis")
+      .attr("transform", `translate(0,${height - margin.bottom})`)
+      .call(xAxis);
+
+  svg.append("g")
+      .attr("class", "y axis")
+      .attr("transform", `translate(${margin.left},0)`)
+      .call(yAxis);
+
+  svg.selectAll(".x.axis .tick text")
+      .attr("transform", "translate(0,10) rotate(45)")
+      .style("text-anchor", "start");
 
 });
