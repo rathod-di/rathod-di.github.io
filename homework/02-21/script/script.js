@@ -58,14 +58,14 @@ d3.csv("./data/gapminder.csv").then(function(data) {
   const xAxisLabel = svg.append("text")
       .attr("class","axisLabel")
       .attr("x", width/2)
-      .attr("y", height-margin.bottom/4)
+      .attr("y", height-margin.bottom/2)
       .text("Year");
 
   const yAxisLabel = svg.append("text")
       .attr("class","axisLabel")
       .attr("transform","rotate(-90)")
       .attr("x", -height/2)
-      .attr("y", margin.left/3)
+      .attr("y", margin.left/2)
       .text("GDP");
       svg.append("g")
       .attr("class", "x axis")
