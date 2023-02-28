@@ -1,7 +1,9 @@
 /* 
 Please read this article for more information 
 on the `box-sizing` css property:
+
 https://www.w3schools.com/css/css3_box-sizing.asp
+
 Note that the asterisk symbol (*) that you see below
 means that the specicif css attribute is applied
 to all elements.
@@ -22,7 +24,9 @@ to all elements.
 Please read this article for more information 
 on the `vh` unit below, which stands for viewport-percentage 
 unit for height:
+
 https://developer.mozilla.org/en-US/docs/Web/CSS/length
+
 */
 
   #chart {
