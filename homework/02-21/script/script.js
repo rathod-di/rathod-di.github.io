@@ -49,9 +49,9 @@ d3.csv("./data/gapminder.csv").then(function(data) {
     if (d.year >= "1952" && d.year <= "1967") {
         return "black";
     } else if (d.year >= "1972" && d.year <= "1987") {
-        return "blue";
+        return "grey";
     } else {
-        return "green";
+        return "white";
     }
 });
 
