@@ -331,7 +331,7 @@ d3.csv("./data/gapminder.csv").then(function(data) {
             } else {
                 return "green";
             }
-        });
+        })
    
     /*
     7. DRAW AXIS LABELS
