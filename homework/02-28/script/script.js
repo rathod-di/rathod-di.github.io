@@ -58,7 +58,7 @@ d3.csv("./data/gapminder.csv").then(function(data) {
   const xAxisLabel = svg.append("text")
       .attr("class","axisLabel")
       .attr("x", width/2)
-      .attr("y", height-margin.bottom/3)
+      .attr("y", height-margin.bottom/4)
       .text("Year");
 
   const yAxisLabel = svg.append("text")
