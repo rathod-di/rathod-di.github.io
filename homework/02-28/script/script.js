@@ -1,4 +1,4 @@
-d3.csv("./data/gapminder.csv").then(function(data) {
+d3.csv("../data/gapminder.csv").then(function(data) {
     const width = document.querySelector("#chart").clientWidth;
     const height = document.querySelector("#chart").clientHeight;
   
