@@ -47,7 +47,7 @@ d3.csv("./data/gapminder.csv").then(function(data) {
           .attr("height", function(d) { return height - (margin.bottom + yScale(d.gdpPercap)) })
           .attr("fill", function(d) {
     if (d.year >= "1952" && d.year <= "1967") {
-        return "red";
+        return "black";
     } else if (d.year >= "1972" && d.year <= "1987") {
         return "blue";
     } else {
@@ -58,14 +58,14 @@ d3.csv("./data/gapminder.csv").then(function(data) {
   const xAxisLabel = svg.append("text")
       .attr("class","axisLabel")
       .attr("x", width/2)
-      .attr("y", height-margin.bottom/2)
+      .attr("y", height-margin.bottom/3)
       .text("Year");
 
   const yAxisLabel = svg.append("text")
       .attr("class","axisLabel")
       .attr("transform","rotate(-90)")
       .attr("x", -height/2)
-      .attr("y", margin.left/2)
+      .attr("y", margin.left/3)
       .text("GDP");
       svg.append("g")
       .attr("class", "x axis")
