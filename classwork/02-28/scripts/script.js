@@ -159,24 +159,26 @@ d3.json("data/world-alpha3.json").then(function(world) {
      * Documentation: https://github.com/d3/d3-zoom
      */
 
+
     function zoomed(e) {
-      //the parameter
-      //e
-      //and
+
       map.attr("transform", e.transform);
     }
-    //calling
-    //handles
+
+// Call d3.zoom() creates a zoom behavior. Note, the .zoom() method
+// handles both zoom and pan events
     let zoom = d3.zoom()
-    //this
-    //zoom
-    // top-left
-    //bottom
+// this essentially constraints the user so that the user can only zoom and pan within specific bounds, eg. our window's width and height
+
+// top-left point of browser: [width, height]
     .translateExtent([[0,0], [width, height]])
-    //this
-    //   [minimum]
-    //experiment
-    .scaleExtent([1,15])
-    // The .on
+// this constraints the extent to which you can zoom in and out
+
+//  minimum scale factor, maximum scale factor
+    .scaleExtent([1, 15])
+
+    .on("zoom", zoomed);
+
+    svg.call(zoom);
 
 });
