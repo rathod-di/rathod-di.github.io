@@ -159,6 +159,24 @@ d3.json("data/world-alpha3.json").then(function(world) {
      * Documentation: https://github.com/d3/d3-zoom
      */
 
-    // TO DO
+    function zoomed(e) {
+      //the parameter
+      //e
+      //and
+      map.attr("transform", e.transform);
+    }
+    //calling
+    //handles
+    let zoom = d3.zoom()
+    //this
+    //zoom
+    // top-left
+    //bottom
+    .translateExtent([[0,0], [width, height]])
+    //this
+    //   [minimum]
+    //experiment
+    .scaleExtent([1,15])
+    // The .on
 
 });
