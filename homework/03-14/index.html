@@ -7,10 +7,14 @@
   <link rel="stylesheet" href="style/style.css">
 </head>
 <body>
+  <body style="font-family:Verdana, Geneva, Tahoma, sans-serif; background: linear-gradient(rgb(255, 199, 150), rgb(255, 246, 230)); background-repeat: no-repeat; background-attachment: fixed; vertical-align: center;">
   <div class="container">
     <header>
-      <h1>Boston's Safe Neighborhood</h1>
-      <img src="https://www.example.com/boston.jpg" alt="Boston Skyline">
+      <div class="rectangle-box">
+        <p><h1>Boston's Safe Neighborhood</h1></p>
+      </div>
+      
+      <img src="https://zumpermedia.s3.amazonaws.com/blog/wp-content/uploads/2018/05/29132730/boston-neighborhoods-cover.jpg.webp" alt="Boston Skyline">
     </header>
     <main>
       <section id="description">
@@ -57,7 +61,7 @@
       datasets: [{
         label: 'Total Crime',
         data: [98888, 87184, 70894, 71721, 73852, 8249],
-        backgroundColor: 'rgba(255, 99, 132, 0.2)',
+        backgroundColor: 'rgba(145, 95, 132, 0.1)',
         borderColor: 'rgba(255, 99, 132, 1)',
         borderWidth: 1
       }]
@@ -78,6 +82,5 @@
       }
     });
   </script>
-  
 </body>
 </html>
