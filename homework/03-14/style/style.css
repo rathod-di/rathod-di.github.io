@@ -1,0 +1,131 @@
+/* Styles for the landing page */
+
+/* Global styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+  }
+  
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+  
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+  }
+  
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  h1 {
+    font-size: 36px;
+    font-weight: bold;
+    margin: 0;
+  }
+  
+  h2 {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 20px 0;
+  }
+  
+  h3 {
+    font-size: 20px;
+    font-weight: bold;
+    margin: 10px 0;
+  }
+  
+  p {
+    font-size
+    : 16px;
+    line-height: 1.5;
+    }
+    
+    ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    }
+    
+    a {
+    color: #333;
+    text-decoration: none;
+    }
+    
+    a:hover {
+    text-decoration: underline;
+    }
+    
+    /* Styles for the localities section */
+    #localities {
+    margin-top: 40px;
+    }
+    
+    #localities ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    }
+    
+    #localities li {
+    margin: 10px 0;
+    width: calc(50% - 10px);
+    }
+    
+    @media screen and (min-width: 768px) {
+    #localities li {
+    width: calc(33.33% - 10px);
+    }
+    }
+    
+    @media screen and (min-width: 1024px) {
+    #localities li {
+    width: calc(25% - 10px);
+    }
+    }
+    
+    /* Styles for the overview section */
+    #overview {
+    margin-top: 40px;
+    }
+    
+    /* Styles for the footer */
+    footer {
+    margin-top: 40px;
+    padding: 20px 0;
+    text-align: center;
+    background-color: #333;
+    color: #fff;
+    }
+    
+    footer p {
+    margin: 0;
+    }
+    
+    /* Responsive styles */
+    @media screen and (max-width: 480px) {
+    h1 {
+    font-size: 24px;
+    }
+    
+    h2 {
+    font-size: 20px;
+    }
+    
+    h3 {
+    font-size: 18px;
+    }
+    
+    #localities li {
+    width: 100%;
+    }
+    }  
