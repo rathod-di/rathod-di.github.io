@@ -19,7 +19,7 @@ function dataJoin(data) {
         .join("g")
             .attr("transform", "translate(" + width/2 + ", 20)")
             // Multiply opacity by 0.1, so that after 10 'clicks' you reach 1.0 opacity (i.e., 100%)
-            .style("opacity", datum => datum * 0.1);
+            .style("opacity", d => d * 0.1);
     
     const circle = g.append("circle")
         .attr("r", 20)
@@ -40,12 +40,16 @@ function dataJoin(data) {
     // data not directly the appearance of SVG elements. Instead, appearance is
     // specified above under "visualization specification".
 
-    g.on("click", (event, datum) => {
-        // TO DO
+    g.on("click", (event, d) => {
+        // This is increasing the contetn of array by one
+        counter [0] = Math.min (++d, LIMIT);
+        dataJoin(counter);
     });
 
-    g.on("dblclick", (event, datum) => {
-        // TO DO
+    g.on("dblclick", (event, d) => {
+        // Resetting counter array to 1
+        counter [0] = 1;s
+        dataJoin(counter);
     });
 
 }
