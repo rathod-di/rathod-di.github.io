@@ -1,10 +1,8 @@
 /**
-
     ARTG5330 Visualization Technologies 1
         February 21, 2023
         Spring Semester
         Week 9
-
         TOOLTIP implementation.
         Re: Based on the Gapminder dataset used on 02-21 to create a scatterplot
                 "Life Expectancy over GDP per capita over, Year 2007"
@@ -29,7 +27,6 @@ const svg = d3.select("#chart")
     giving it class 'tooltip'; note that this newly created div inherits 
     (receives) the CSS properties defined by the .tooltip { ... } rule 
     in the stylesheet.
-
     This tooltip variable is used later in the code to implement the actual tooltip.
 */
 
@@ -95,7 +92,6 @@ function drawScatterPlot(data) {
 
     /**
         4. CREATE SCALES
-
         We'll use the computed min and max values to create scales for
         our scatter plot.
     */
@@ -137,12 +133,10 @@ function drawScatterPlot(data) {
     
     /**
         6. DRAW POINTS
-
         In this scatter plot, each circle will represent a single country;
         the horizontal position of the circle will represent GDP per capita,
         vertical position will represent life expectancy, color will represent
         continent, and radius will represent population
-
         The following chunk of code is the standard D3 data join pattern.
     */
 
@@ -157,7 +151,6 @@ function drawScatterPlot(data) {
 
     /**
         7. DRAW AXIS LABELS
-
         The chunks of code below draw text labels for the axes.
     */
 
@@ -182,12 +175,10 @@ function drawScatterPlot(data) {
 
     /**
         BRUSH Interactivity Implementation
-
         D3.js brush() function 
         See:
                 https://github.com/d3/d3-brush
                 https://www.geeksforgeeks.org/d3-js-brush-function/
-
         The following implementation is using the .map function over
         the initial dataset to create a new dataset that has one additional
         variable/column called "selected" which is a Boolean value (true/false).
@@ -200,13 +191,15 @@ function drawScatterPlot(data) {
     */
 
     const brush = d3.brush() // // Add the brush feature using the d3.brush function
-        // initialise the brush area: start at 0,0 and finishes at width,height: it means I select the whole graph area
+        // initialise the brush area
+        // start at left margin,top margin and finishes at width,height: it means I select the whole graph area
         .extent([[margin.left,margin.top], [width-margin.right,height-margin.bottom]])
         // Can be shortened to .on('start brush end', brushed)
         // Each time the brush selection changes, triggers the 'brushed' function
         .on("start", brushed)
         .on("brush", brushed)
-        .on("end", brushed);
+        .on("end", brushed); 
+        // instead keeping data points gray, it return them back to its original colors
     
     // Like all event listeners, this one receive the "event" as the first parameter. 
     // As a custom event, however, it has some non-standard properties with the underlying 
@@ -239,6 +232,7 @@ function drawScatterPlot(data) {
                     },
                     function(update){
                         return update
+                        // : means otherwise something
                             .style("fill", d => d.selected ? fillScale(d.continent) : "lightgray")
                             .style("stroke", d => d.selected ? "black" : "none")
                             .style("stroke-width", d => d.selected ? "0.8px" : "none");
@@ -262,6 +256,7 @@ function drawScatterPlot(data) {
         // [[x0, y0], [x1, y1]] for 2D brushes; [x0, x1] or [y0, y1] for 1D brushes
         const [[x0, y0], [x1, y1]] = brush_coords;
         // This return TRUE or FALSE depending on if the points is in the selected area
+        // <= means above something and < means less than something
         return x0 <= xs && xs < x1 && y0 <= ys && ys < y1;
     }
 
