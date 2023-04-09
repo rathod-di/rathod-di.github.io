@@ -1,4 +1,4 @@
-d3.csv("TimeCrime.csv").then(function(data) {
+d3.csv("timecrime.csv").then(function(data) {
     var trace1 = {
       x: data.map(function(d) { return d.time; }),
       y: data.map(function(d) { return d.day; }),
