@@ -1,48 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <title>Crime Rates by Time of Day</title>
   <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-  <script src="https://d3js.org/d3.v6.min.js"></script>
+  <link rel="stylesheet" href="TimeCrime.css">
 </head>
 <body>
+  <h1>Crime Rates by Time of Day</h1>
   <div id="chart"></div>
-  <script>
-    d3.csv("homework\03-28\data\time_corrected_boston_crime.csv").then(function(data) {
-      var trace1 = {
-        x: data.map(function(d) { return d.time; }),
-        y: data.map(function(d) { return d.day; }),
-        type: 'bar',
-        name: 'Day'
-      };
-
-      var trace2 = {
-        x: data.map(function(d) { return d.time; }),
-        y: data.map(function(d) { return d.mid_day; }),
-        type: 'bar',
-        name: 'Mid-Day'
-      };
-
-      var trace3 = {
-        x: data.map(function(d) { return d.time; }),
-        y: data.map(function(d) { return d.night; }),
-        type: 'bar',
-        name: 'Night'
-      };
-
-      var layout = {
-        title: 'Crime Rates by Time of Day',
-        xaxis: {
-          title: 'Time of Day'
-        },
-        yaxis: {
-          title: 'Crime Rate'
-        }
-      };
-
-      var data = [trace1, trace2, trace3];
-
-      Plotly.newPlot('chart', data, layout);
-    });
-  </script>
+  <script src="TimeCrime.js"></script>
 </body>
 </html>
