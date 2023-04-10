@@ -1,11 +1,13 @@
-d3.csv("timecrime.csv").then(function(data) {
+console.log("hi")
+d3.csv("data/timecrime.csv").then(function(data) {
     var trace1 = {
       x: data.map(function(d) { return d.time; }),
       y: data.map(function(d) { return d.day; }),
       type: 'bar',
       name: 'Day'
     };
-  
+  console.log(trace1)
+
     var trace2 = {
       x: data.map(function(d) { return d.time; }),
       y: data.map(function(d) { return d.mid_day; }),
