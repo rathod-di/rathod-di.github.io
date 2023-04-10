@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Crime Data by Time of Day</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+<body>
+  <canvas id="myChart"></canvas>
+
+  <script>
+    // Load the CSV file
+    Plotly.d3.csv("data/timecrime.csv", function(err, data) {
+      if(err) console.log(err);
+
+      // Create an object to hold the count of crimes by time of day
+      var counts = {};
+
+      // Loop through the data and count the crimes by time of day
+      data.forEach(function(d) {
+        var timeOfDay = d["time of day"];
+        if(!counts[timeOfDay]) counts[timeOfDay] = 0;
+        counts[timeOfDay]++;
+      });
+
+      // Create an array for the x-axis and y-axis data
+      var labels = Object.keys(counts);
+      var data = labels.map(function(timeOfDay) { return counts[timeOfDay]; });
+
+      // Create the chart using Chart.js
+      var ctx = document.getElementById('myChart').getContext('2d');
+      var myChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels: labels,
+          datasets: [{
+            label: 'Crime Count',
+            data: data,
+            backgroundColor: 'rgba(54, 162, 235, 0.2)',
+            borderColor: 'rgba(54, 162, 235, 1)',
+            borderWidth: 1
+          }]
+        },
+        options: {
+          scales: {
+            x: {
+              title: {
+                display: true,
+                text: 'Time of Day'
+              }
+            },
+            y: {
+              title: {
+                display: true,
+                text: 'Crime Count'
+              },
+              ticks: {
+                beginAtZero: true
+              }
+            }
+          },
+          plugins: {
+            legend: {
+              display: false
+            }
+          },
+          layout: {
+            padding: {
+              left: 50,
+              right: 50,
+              top: 0,
+              bottom: 0
+            }
+          },
+          // Set the bar and category percentages to adjust the width of the bars
+          indexAxis: 'x',
+          barPercentage: 0.5,
+          categoryPercentage: 0.8
+        }
+      });
+    });
+  </script>
+</body>
+</html>
