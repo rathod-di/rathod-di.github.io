@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Crime Data by Time of Day</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    canvas {
+      -moz-user-select: none;
+      -webkit-user-select: none;
+      -ms-user-select: none;
+    }
+  </style>
+</head>
+<body>
+  <canvas id="chart"></canvas>
+
+  <script>
+    // Load the CSV file
+    fetch('data/timecrime.csv')
+      .then(response => response.text())
+      .then(text => {
+        const data = d3.csvParse(text);
+
+        // Log the data to the console
+        console.log(data);
+
+        // Create an object to hold the count of crimes by time of day
+        var counts = {};
+
+        // Loop through the data and count the crimes by time of day
+        data.forEach(function(d) {
+          var timeOfDay = d["time of day"];
+          if(!counts[timeOfDay]) counts[timeOfDay] = 0;
+          counts[timeOfDay]++;
+        });
+
+        // Create an array for the x-axis and y-axis data
+        var x = Object.keys(counts);
+        var y = x.map(function(timeOfDay) { return counts[timeOfDay]; });
+
+        // Create the plot using Chart.js
+        var ctx = document.getElementById('chart').getContext('2d');
+        var chart = new Chart(ctx, {
+          type: 'bar',
+          data: {
+            labels: x,
+            datasets: [{
+              label: 'Crime Data by Time of Day',
+              data: y,
+              backgroundColor: 'rgba(255, 99, 132, 0.2)',
+              borderColor: 'rgba(255, 99, 132, 1)',
+              borderWidth: 1
+            }]
+          },
+          options: {
+            scales: {
+              y: {
+                beginAtZero: true
+              }
+            }
+          }
+        });
+      });
+  </script>
+</body>
+</html>
