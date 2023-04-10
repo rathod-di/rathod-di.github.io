@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Crime by Year</title>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+      }
+      #chart {
+        width: 1200px;
+        height: 1000px;
+        margin: 0 auto;
+      }
+    </style>
+  </head>
+  <body>
+    <body style="font-family:Verdana, Geneva, Tahoma, sans-serif; background: linear-gradient(rgb(255, 199, 150), rgb(255, 246, 230)); background-repeat: no-repeat; background-attachment: fixed; vertical-align: center;"></body>
+   <center><h1>Crimes by Year in Boston</h1></center> 
+    <div id="chart"></div>
+    <script>
+        // Use the generated sample data
+        const data = [{crime: "Assault", year: 2018, count: 7728}, {crime: "Drugs", year: 2018, count: 14}, {crime: "Firearms/Weapons", year: 2018, count: 466}, {crime: "Misc", year: 2018, count: 19705}, {crime: "Motor Vehicle", year: 2018, count: 6376}, {crime: "Other Crimes", year: 2018, count: 4867}, {crime: "Public Order", year: 2018, count: 2450}, {crime: "Theft", year: 2018, count: 10573}, {crime: "Assault", year: 2019, count: 7338}, {crime: "Drugs", year: 2019, count: 849}, {crime: "Firearms/Weapons", year: 2019, count: 443}, {crime: "Homicide", year: 2019, count: 1}, {crime: "Misc", year: 2019, count: 13935}, {crime: "Motor Vehicle", year: 2019, count: 6981}, {crime: "Other Crimes", year: 2019, count: 5487}, {crime: "Property Crime", year: 2019, count: 471}, {crime: "Public Order", year: 2019, count: 2038}, {crime: "Theft", year: 2019, count: 10720}, {crime: "Assault", year: 2020, count: 4369}, {crime: "Drugs", year: 2020, count: 2217}, {crime: "Firearms/Weapons", year: 2020, count: 728}, {crime: "Misc", year: 2020, count: 6637}, {crime: "Motor Vehicle", year: 2020, count: 7188}, {crime: "Other Crimes", year: 2020, count: 7829}, {crime: "Property Crime", year: 2020, count: 1510}, {crime: "Public Order", year: 2020, count: 947}, {crime: "Theft", year: 2020, count: 10893}, {crime: "Assault", year: 2021, count: 4341}, {crime: "Drugs", year: 2021, count: 2461}, {crime: "Firearms/Weapons", year: 2021, count: 773}, {crime: "Homicide", year: 2021, count: 3}, {crime: "Misc", year: 2021, count: 6188}, {crime: "Motor Vehicle", year: 2021, count: 8641}, {crime: "Other Crimes", year: 2021, count: 8570}, {crime: "Property Crime", year: 2021, count: 1097}, {crime: "Public Order", year: 2021, count: 716}, {crime: "Theft", year: 2021, count: 9866}, {crime: "Assault", year: 2022, count: 4578}, {crime: "Drugs", year: 2022, count: 2297}, {crime: "Firearms/Weapons", year: 2022, count: 820}, {crime: "Homicide", year: 2022, count: 36}, {crime: "Misc", year: 2022, count: 6283}, {crime: "Motor Vehicle", year: 2022, count: 8606}, {crime: "Other Crimes", year: 2022, count: 9437}, {crime: "Property Crime", year: 2022, count: 1029}, {crime: "Public Order", year: 2022, count: 616}, {crime: "Theft", year: 2022, count: 10274}, {crime: "Assault", year: 2023, count: 446}, {crime: "Drugs", year: 2023, count: 263}, {crime: "Firearms/Weapons", year: 2023, count: 89}, {crime: "Homicide", year: 2023, count: 2}, {crime: "Misc", year: 2023, count: 622}, {crime: "Motor Vehicle", year: 2023, count: 891}, {crime: "Other Crimes", year: 2023, count: 1156}, {crime: "Property Crime", year: 2023, count: 97}, {crime: "Public Order", year: 2023, count: 86}, {crime: "Theft", year: 2023, count: 1103}];
+        ;
+        
+        // Group the data by crime and year
+        const groupedData = {};
+        data.forEach(({ crime, year, count }) => {
+          const key = `${crime}-${year}`;
+          if (!groupedData[key]) {
+            groupedData[key] = { crime, year, count };
+          } else {
+            groupedData[key].count += count;
+          }
+        });
+        
+        // Define the crimes to plot
+        const crimesToPlot = ['Homicide', 'Assault', 'Theft', 'Public Order',
+               'Motor Vehicle', 'Misc', 'Firearms/Weapons', 'Drugs',
+               'Property Crime','Other Crimes' ];
+        
+        
+        // Convert the grouped data into arrays for plotting
+        const years = Array.from(new Set(Object.keys(groupedData).map(key => groupedData[key].year)));
+        const counts = crimesToPlot.map(crime => years.map(year => groupedData[`${crime}-${year}`]?.count ?? 0));
+        
+        // Define the layout and data for the chart
+        const layout = {
+          barmode: 'group',
+          xaxis: { title: 'Year' },
+          yaxis: { title: 'Count' },
+          hovermode: 'closest',
+          hoverlabel: { bgcolor: '#444', font: { color: '#fff' } },
+        };
+        const chartData = crimesToPlot.map((crime, i) => {
+          const colors = [
+            { stop: 0, color: '#ffffff' },
+            { stop: 0.5, color: `hsl(${i * 30}, 70%, 60%)` },
+            { stop: 1, color: `hsl(${i * 30}, 70%, 40%)` },
+          ];
+        
+          return {
+            x: years,
+            y: counts[i],
+            name: crime,
+            type: 'bar',
+            marker: {
+              color: colors.map(({ stop, color }) => `${color} ${stop * 100}%`).join(','),
+              opacity: 0.8,
+            },
+          };
+        });
+        
+        // Create the chart
+        Plotly.newPlot('chart', chartData, layout);
+        
+              // Create the chart
+              Plotly.newPlot('chart', chartData, layout);
+            </script>
+  </body>
+</html>
