@@ -46,17 +46,17 @@ d3.json(geoJSONFile).then(function(ditu) {
         {"name": "Boston", "coords": [-71.057, 42.313]}
     ];
 
-    var circleRadius = 10;
+    // var circleRadius = 10;
 
-    map.selectAll("circle")
-        .data(points)
-        .enter()
-            .append("circle")
-            .attr("r", circleRadius)
-            .attr("fill", "#201E20")
-            .attr("transform", function(d) {
-                return "translate(" + proj(d.coords) + ")";
-            });
+    // map.selectAll("circle")
+    //     .data(points)
+    //     .enter()
+    //         .append("circle")
+    //         .attr("r", circleRadius)
+    //         .attr("fill", "#201E20")
+    //         .attr("transform", function(d) {
+    //             return "translate(" + proj(d.coords) + ")";
+    //         });
 
     function zoomed(e) {
         map.attr("transform", e.transform);
