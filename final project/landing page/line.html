@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Line Plot Example</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <canvas id="myChart"></canvas>
+  <script>
+    // Read the data from a CSV file
+    async function getData() {
+      const response = await fetch('data/FINAL_DATA_BOSTON_WITH_TIME.csv');
+      const data = await response.text();
+      const rows = data.split('\n').slice(1);
+      const labels = [];
+      const dayData = [];
+      const midDayData = [];
+      const nightData = [];
+      rows.forEach(row => {
+        const cols = row.split(',');
+        labels.push(cols[0]);
+        dayData.push(parseInt(cols[1]));
+        midDayData.push(parseInt(cols[2]));
+        nightData.push(parseInt(cols[3]));
+      });
+      
+      // Define the dataset
+      const dataset = {
+        labels: labels,
+        datasets: [
+          {
+            label: 'day',
+            data: dayData,
+            borderColor: 'red',
+            backgroundColor: 'transparent',
+            pointBackgroundColor: 'red',
+            pointBorderColor: 'red',
+            pointRadius: 4,
+            pointHoverRadius: 8
+          },
+          {
+            label: 'mid-day',
+            data: midDayData,
+            borderColor: 'blue',
+            backgroundColor: 'transparent',
+            pointBackgroundColor: 'blue',
+            pointBorderColor: 'blue',
+            pointRadius: 4,
+            pointHoverRadius: 8
+          },
+          {
+            label: 'night',
+            data: nightData,
+            borderColor: 'green',
+            backgroundColor: 'transparent',
+            pointBackgroundColor: 'green',
+            pointBorderColor: 'green',
+            pointRadius: 4,
+            pointHoverRadius: 8
+          }
+        ]
+      };
+
+      // Create the chart
+      const ctx = document.getElementById('myChart').getContext('2d');
+      const myChart = new Chart(ctx, {
+          type: 'line',
+          data: dataset,
+          options: {
+            responsive: true,
+            title: {
+              display: true,
+              text: 'Crimes Major by Day of Week'
+            },
+            legend: {
+              position: 'top',
+              labels: {
+                fontColor: 'black'
+              }
+            },
+            scales: {
+              xAxes: [{
+                gridLines: {
+                  display: false
+                },
+                ticks: {
+                  fontColor: 'black'
+                }
+              }],
+              yAxes: [{
+                gridLines: {
+                  color: 'gray'
+                },
+                ticks: {
+                  fontColor: 'black',
+                  beginAtZero: true
+                }
+              }]
+            }
+          }
+      });
+    }
+
+    // Call the function to get the data and create the chart
+    getData();
+  </script>
+</body>
+</html>
