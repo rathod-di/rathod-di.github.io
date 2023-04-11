@@ -1,11 +1,8 @@
 const width = window.innerWidth, height = window.innerHeight;
-
 const svg = d3.select("#viz")
             .attr("width", width)
             .attr("height", height);
-
 const map = svg.select("#map");
-
 d3.select("#ocean")
   .attr("width", width)
   .attr("height", height);
@@ -15,21 +12,6 @@ let geoJSONFile = "https://gist.githubusercontent.com/jdev42092/5c285c4a3608eb9f
 d3.json(geoJSONFile).then(function(ditu) {
 
     var proj = d3.geoMercator().fitSize([width, height], ditu);
-
-    /**
-     * Optionally, use this projection instead of the one above. 
-     * Its not much different in terms of the resulting map, but it just adds
-     * some realism in terms of Boston's actual longitude and latitude
-     */
-
-    // var proj = d3.geoMercator()
-    //     .fitSize([width, height], ditu)
-    //     // Optionally, add these
-    //     .rotate( [71.057,0] ) // Boston's longitude
-    //     .center( [0, 42.313] ) // Boston's latitude
-    //     // Translate the map to the center of the screen
-    //     .translate( [width/2,height/2] );
-
     var path = d3.geoPath().projection(proj);
 
     map.selectAll("path")
@@ -37,27 +19,40 @@ d3.json(geoJSONFile).then(function(ditu) {
         .enter()
             .append("path")
             .attr("d", path)
-            .attr("fill", "#FCEDDA")
+            .attr("fill", function(d) {
+                // Color the regions based on their names
+                switch (d.properties.Name) {
+                    case "South End":
+                        return "red";
+                    case "East Boston":
+                        return "blue";
+                    case "Allston/Brighton":
+                        return "green";
+                    case "Mattapan":
+                        return "purple";
+                    case "North End":
+                        return "orange";
+                    case "Roxbury":
+                        return "yellow";
+                    case "South Boston":
+                        return "brown";
+                    case "Dorchester":
+                        return "pink";
+                    case "Hyde Park":
+                        return "gray";
+                    case "West Roxbury":
+                        return "teal";
+                    default:
+                        return "#FCEDDA";
+                }
+            })
             .attr("vector-effect", "non-scaling-stroke")
             .attr("stroke", "#FC766AFF")
             .attr("stroke-width", "1px");
-    
+   
     var points = [
         {"name": "Boston", "coords": [-71.057, 42.313]}
     ];
-
-    // var circleRadius = 10;
-
-    // map.selectAll("circle")
-    //     .data(points)
-    //     .enter()
-    //         .append("circle")
-    //         .attr("r", circleRadius)
-    //         .attr("fill", "#201E20")
-    //         .attr("transform", function(d) {
-    //             return "translate(" + proj(d.coords) + ")";
-    //         });
-
     function zoomed(e) {
         map.attr("transform", e.transform);
     };
