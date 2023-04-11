@@ -22,8 +22,7 @@
     <div id="chart"></div>
     <script>
         // Use the generated sample data
-        const data = [{crime: "Assault", year: 2020, count: 4369}, {crime: "Drugs", year: 2020, count: 2217}, {crime: "Firearms/Weapons", year: 2020, count: 728}, {crime: "Misc", year: 2020, count: 6637}, {crime: "Motor Vehicle", year: 2020, count: 7188}, {crime: "Other Crimes", year: 2020, count: 7829}, {crime: "Property Crime", year: 2020, count: 1510}, {crime: "Public Order", year: 2020, count: 947}, {crime: "Theft", year: 2020, count: 10893}, {crime: "Assault", year: 2021, count: 4341}, {crime: "Drugs", year: 2021, count: 2461}, {crime: "Firearms/Weapons", year: 2021, count: 773}, {crime: "Homicide", year: 2021, count: 3}, {crime: "Misc", year: 2021, count: 6188}, {crime: "Motor Vehicle", year: 2021, count: 8641}, {crime: "Other Crimes", year: 2021, count: 8570}, {crime: "Property Crime", year: 2021, count: 1097}, {crime: "Public Order", year: 2021, count: 716}, {crime: "Theft", year: 2021, count: 9866}, {crime: "Assault", year: 2022, count: 4578}, {crime: "Drugs", year: 2022, count: 2297}, {crime: "Firearms/Weapons", year: 2022, count: 820}, {crime: "Homicide", year: 2022, count: 36}, {crime: "Misc", year: 2022, count: 6283}, {crime: "Motor Vehicle", year: 2022, count: 8606}, {crime: "Other Crimes", year: 2022, count: 9437}, {crime: "Property Crime", year: 2022, count: 1029}, {crime: "Public Order", year: 2022, count: 616}, {crime: "Theft", year: 2022, count: 10274}];
-        ;
+const data = [{'crime': 'Assault', 'year': 2020, 'count': 8460}, {'crime': 'Assault', 'year': 2021, 'count': 8535}, {'crime': 'Assault', 'year': 2022, 'count': 8694}, {'crime': 'Drugs/Alcohol', 'year': 2020, 'count': 2246}, {'crime': 'Drugs/Alcohol', 'year': 2021, 'count': 2448}, {'crime': 'Drugs/Alcohol', 'year': 2022, 'count': 2233}, {'crime': 'Firearms/Weapons', 'year': 2020, 'count': 720}, {'crime': 'Firearms/Weapons', 'year': 2021, 'count': 733}, {'crime': 'Firearms/Weapons', 'year': 2022, 'count': 804}, {'crime': 'Homicide', 'year': 2020, 'count': 52}, {'crime': 'Homicide', 'year': 2021, 'count': 31}, {'crime': 'Homicide', 'year': 2022, 'count': 41}, {'crime': 'Kidnap', 'year': 2020, 'count': 6}, {'crime': 'Kidnap', 'year': 2021, 'count': 10}, {'crime': 'Kidnap', 'year': 2022, 'count': 10}, {'crime': 'Misc', 'year': 2020, 'count': 6704}, {'crime': 'Misc', 'year': 2021, 'count': 6498}, {'crime': 'Misc', 'year': 2022, 'count': 7113}, {'crime': 'Motor Vehicle', 'year': 2020, 'count': 8393}, {'crime': 'Motor Vehicle', 'year': 2021, 'count': 9809}, {'crime': 'Motor Vehicle', 'year': 2022, 'count': 9577}, {'crime': 'Property Crime', 'year': 2020, 'count': 2567}, {'crime': 'Property Crime', 'year': 2021, 'count': 2349}, {'crime': 'Property Crime', 'year': 2022, 'count': 2843}, {'crime': 'Public Order', 'year': 2020, 'count': 246}, {'crime': 'Public Order', 'year': 2021, 'count': 193}, {'crime': 'Public Order', 'year': 2022, 'count': 210}, {'crime': 'Theft', 'year': 2020, 'count': 11857}, {'crime': 'Theft', 'year': 2021, 'count': 10177}, {'crime': 'Theft', 'year': 2022, 'count': 10040}]        ;
         
         // Group the data by crime and year
         const groupedData = {};
@@ -37,9 +36,9 @@
         });
         
         // Define the crimes to plot
-        const crimesToPlot = ['Homicide', 'Assault', 'Theft', 'Public Order',
-               'Motor Vehicle', 'Misc', 'Firearms/Weapons', 'Drugs',
-               'Property Crime','Other Crimes' ];
+        const crimesToPlot = ['Theft', 'Assault', 'Property Crime', 'Motor Vehicle',
+       'Firearms/Weapons', 'Misc', 'Drugs/Alcohol', 'Homicide',
+       'Public Order', 'Kidnap'];
         
         
         // Convert the grouped data into arrays for plotting
