@@ -50,12 +50,43 @@ function createHierarchicalLayout(data) {
      *  The following lines of code handle HIERARCHICAL LAYOUT-SPECIFIC methods.
      */
 
-    // TO DO
+    let treelayout = d3.tree()
+                     .size([width, height])
+    treelayout(root);
 
     /**
      *  The following lines of code handle VISUALIZATION-SPECIFIC methods.
      */
 
-    // TO DO
+    svg.append("g")
+        .selectAll("line")
+        .data(root.links())
+        .join("line")
+         //coordinates of the start of line
+         .attr("x1",function (d) { return d.source.x; })
+         .attr("y1",function (d) { return d.source.y; })
+          //coordinates of the end of line
+          .attr("x2",function (d) { return d.target.x; })
+          .attr("y2",function (d) { return d.target.y; })
+          .style("stroke=width", 6);
 
-}
+          //NODES of tree, connected by lines
+          svg.append("g")
+        .selectAll("circle")
+        .data(root.decendants())
+        .join("circle")
+        .attr("cx",function (d) { return d.x; })
+        .attr("cy",function (d) { return d.y; })
+        .attr("r", 12);
+
+        //Add text for nodes/circles
+        svg.append("g")
+        .selectAll("text, label")
+        .data(root.decendants())
+        .join("text")
+        .attr("x",function (d) { return d.x; })
+        .attr("y",function (d) { return d.y-20; })
+        .text(function(d) {
+            return d.data[0];
+        })
+        

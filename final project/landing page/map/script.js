@@ -26,7 +26,7 @@ d3.json(geoJSONFile).then(function(ditu) {
                         return "red";
                     case "East Boston":
                         return "blue";
-                    case "Allston/Brighton":
+                    case "Allston-Brighton":
                         return "green";
                     case "Mattapan":
                         return "purple";
