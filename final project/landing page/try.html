@@ -7,11 +7,10 @@
   <link rel="stylesheet" href="style/style.css">
 </head>
 <body>
-  <body style="font-family:Verdana, Geneva, Tahoma, sans-serif; background: linear-gradient(rgb(255, 204, 160), rgb(255, 246, 230)); background-repeat: no-repeat; background-attachment: fixed; vertical-align: center;">
   <div class="container">
     <header>
       <div class="rectangle-box">
-        <p><h1>Boston's Safe Neighborhood</h1></p>
+        <h1>Boston's Safe Neighborhood</h1>
       </div>
       
       <img src="https://zumpermedia.s3.amazonaws.com/blog/wp-content/uploads/2018/05/29132730/boston-neighborhoods-cover.jpg.webp" alt="Boston Skyline">
@@ -38,56 +37,6 @@
         <h2>Localities</h2>
         <p id="locality-description">Click on a locality to view its overview.</p>
         <ul>
-          <li><a href="#" id="locality1">1. East Boston</a></li>
-          <li><a href="#" id="locality2">2. Roslindale</a></li>
-          <li><a href="#" id="locality3">3. Hyde Park </a></li>
-          <li><a href="#" id="locality4">4. Allston-Brighton</a></li>
-          <li><a href="#" id="locality5">5. South Boston</a></li>
-          <li><a href="#" id="locality6">6. Mattapan</a></li>
-          <li><a href="#" id="locality7">7. Jamaica Plain</a></li>
-          <li><a href="#" id="locality8">8. Downtown</a></li>
-          <li><a href="#" id="locality9">9. Dorchester</a></li>
-          <li><a href="#" id="locality10">10. Roxbury</a></li>
-        </ul>
-        
-      </section>
-    </main>
-    <footer>
-      <p>&copy; 2023 Boston's Safe Neighborhood</p>
-    </footer>
-  </div>
-  <script src="script/script.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <script>
-    // Get the canvas element
-    const ctx = document.getElementById('crime-chart').getContext('2d');
-  
-    // Define the data
-    const data = {
-      labels: ['2020', '2021', '2022'],
-      datasets: [{
-        label: 'Total Crime',
-        data: [70894, 71721, 73852],
-        backgroundColor: 'rgba(145, 95, 132, 0.1)',
-        borderColor: 'rgba(255, 99, 132, 1)',
-        borderWidth: 1
-      }]
-    };
-  
-    // Create the chart
-    const chart = new Chart(ctx, {
-      type: 'bar',
-      data: data,
-      options: {
-        scales: {
-          yAxes: [{
-            ticks: {
-              beginAtZero: true
-            }
-          }]
-        }
-      }
-    });
-  </script>
-</body>
-</html>
+          <li><a href="#" id="locality1" onclick="showPopup('East Boston', 'image/east-boston.jpg', 'East Boston is a neighborhood in the Boston area. It is a diverse community with a mix of residential and commercial areas. It has several parks and recreational facilities.')">1. East Boston</a></li>
+          <li><a href="#" id="locality2" onclick="showPopup('West Roxbury', 'image/west-roxbury.jpg', 'West Roxbury is a neighborhood in Boston, Massachusetts. It has a suburban feel with many parks and green spaces. It is also home to several historic sites and landmarks.')">2. West Roxbury</a></li>
+          <li><a href="#" id="locality3" onclick="showPopup('Hyde Park', 'image/hyde-park.jpg', 'Hyde Park is a neighborhood in Boston, Massachusetts.')">3. Hyde Park</a></li>
