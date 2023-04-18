@@ -48,9 +48,9 @@ const pieData = Array.from(d3.group(data, d => d.Areas), ([key, value]) => ({ ke
       .outerRadius(pieRadius)
     )
     .attr("fill", function(d, i) {
-      return d3.schemeCategory10[i % 10];
+      return d3.interpolateGreens(i / pie.length);
     })
-    .attr("transform", function(d, i) {
+        .attr("transform", function(d, i) {
       // Position each pie slice side by side
       const angle = (d.startAngle + d.endAngle) / 2;
       const x = (pieRadius / 2) * Math.cos(angle);
