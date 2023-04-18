@@ -189,7 +189,7 @@ barSvg.append("text")
 
     d3.json(geoJSONFile).then(function(ditu) {
 
-        var proj = d3.geoMercator().scale(70000).center([-71.265, 42.373]);
+        var proj = d3.geoMercator().scale(70000).center([-71.270, 42.380]);
         var path = d3.geoPath().projection(proj);
 
         map.selectAll("path")
