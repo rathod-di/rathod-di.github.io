@@ -2,7 +2,7 @@
 
 ## By- Disha Rathod
 
-[https://zumpermedia.s3.amazonaws.com/blog/wp-content/uploads/2018/05/29132730/boston-neighborhoods-cover.jpg.webp]()
+<img src="https://zumpermedia.s3.amazonaws.com/blog/wp-content/uploads/2018/05/29132730/boston-neighborhoods-cover.jpg.webp" width="800" height="600" alt="My Project Logo">
 
 ## Abstract:
 The project aims to provide a visual representation of crime data in Boston to help people choose a safe neighborhood when searching for accommodation. The project uses a dataset with ten columns, including incident number, offense code, offense code group, offense description, district, reporting area, shooting, occurred on date, uniform crime reporting (UCR) part, and street. From these columns, the five most important variables were chosen to represent the data visually. The visualization includes bar graphs, column charts, and a pie chart, and the data is segregated and sorted by year, locality, crimes, year, month, and week.
