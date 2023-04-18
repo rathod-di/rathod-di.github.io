@@ -4,6 +4,8 @@
   <title>Boston's Safe Neighborhood</title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-tip/0.9.1/d3-tip.min.js"></script>
   <link rel="stylesheet" href="style/style.css">
 </head>
 <body>
@@ -26,14 +28,23 @@
         <section id="overview">
         <canvas id="crime-chart"></canvas>    
       </section>
-    <center> <iframe src="index.html" frameborder="0"width="1300" height="1200"></iframe></center>
+    <center> <iframe src="index.html" frameborder="0"width="1300" height="1100"></iframe></center>
     <center> <iframe src="time.html" frameborder="0"width="1300" height="700"></iframe></center>
       <section id="top10">
         <h2>10 Safest Neighborhoods in Boston</h2>
         <p>Whether you're looking for a Boston neighborhood that's known for its historical landmarks or a funky, lively hood in Cambridge, we've got you covered. Here's our guide to the best neighborhoods in Boston for newcomers.</p>
         <img src="image/bostoncrime.png" alt="Your Image">
       </section>
-      <center> <iframe src="map/index.html" frameborder="0"width="1300" height="700"></iframe></center>
+      <svg id="viz">
+        <!-- The rectangle for the background color
+        <rect id="ocean" x="0" y="0" fill="#8AAAE5" /> -->
+
+        <g id="pie"></g>
+        <g id="map"></g>
+      </svg>
+
+      <script src="map/script.js"></script>
+
       <section id="localities">
         <h2>Localities</h2>
         <p id="locality-description">Click on a locality to view its overview.</p>
